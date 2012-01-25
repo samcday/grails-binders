@@ -67,9 +67,9 @@ Custom data binding made easy.
     }
 
     def onChange = { event ->
-        // TODO Implement code that is executed when any artefact that this plugin is
-        // watching is modified and reloaded. The event contains: event.source,
-        // event.application, event.manager, event.ctx, and event.plugin.
+        if (application.isArtefactOfType(BinderArtefactHandler.TYPE, event.source)) {
+            application.addArtefact(BinderArtefactHandler.TYPE, event.source)
+        }
     }
 
     def onConfigChange = { event ->
