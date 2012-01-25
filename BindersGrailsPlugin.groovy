@@ -1,4 +1,5 @@
 import au.com.samcday.BinderArtefactHandler
+import au.com.samcday.CustomPropertyEditorRegistrar
 
 class BindersGrailsPlugin {
     // the plugin version
@@ -52,7 +53,9 @@ Custom data binding made easy.
     }
 
     def doWithSpring = {
-        // TODO Implement runtime spring config (optional)
+        customPropertyEditorRegistrar(CustomPropertyEditorRegistrar) {
+            grailsApplication = ref("grailsApplication")
+        }
     }
 
     def doWithDynamicMethods = { ctx ->
