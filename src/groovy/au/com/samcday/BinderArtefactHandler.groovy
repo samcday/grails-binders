@@ -7,6 +7,7 @@ class BinderArtefactHandler extends ArtefactHandlerAdapter {
 
     public BinderArtefactHandler() {
         super(TYPE, GrailsBinderClass, DefaultGrailsBinderClass, null)
+        println "new artefact handler."
     }
 
     public boolean isArtefactClass(Class clazz) {

@@ -11,7 +11,7 @@ class DefaultGrailsBinderClass extends AbstractInjectableGrailsClass implements 
     public DefaultGrailsBinderClass(Class clazz) {
         super(clazz, BinderArtefactHandler.TYPE)
 
-        println "created binder class"
+        println "created binder class ${clazz}"
     }
 
     @Override
@@ -23,12 +23,17 @@ class DefaultGrailsBinderClass extends AbstractInjectableGrailsClass implements 
     }
 
     @Override
-    Object bind(String text) {
+    Object doBind(String text) {
+        println "gogo bind!"
         return metaClass.invokeMethod(referenceInstance, BIND_CLOSURE, [text] as Object[])
     }
 
     @Override
     String asText(Object val) {
-        return metaClass.invokeMethod(referenceInstance, AS_TEXT_CLOSURE, [val] as Object[])
+        if(metaClass.respondsTo(referenceInstance, AS_TEXT_CLOSURE)) {
+            return metaClass.invokeMethod(referenceInstance, AS_TEXT_CLOSURE, [val] as Object[])
+        }
+        
+        return val.toString()
     }
 }
