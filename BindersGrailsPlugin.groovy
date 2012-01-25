@@ -1,3 +1,5 @@
+import au.com.samcday.BinderArtefactHandler
+
 class BindersGrailsPlugin {
     // the plugin version
     def version = "0.1"
@@ -36,6 +38,14 @@ Custom data binding made easy.
 
     // Online location of the plugin's browseable source code.
 //    def scm = [ url: "http://svn.grails-plugins.codehaus.org/browse/grails-plugins/" ]
+
+    //def artefacts = [new ConstraintArtefactHandler()]
+
+    def watchedResources = [
+            "file:./grails-app/utils/*Binder.groovy"
+    ]
+
+    def artefacts = [BinderArtefactHandler]
 
     def doWithWebDescriptor = { xml ->
         // TODO Implement additions to web.xml (optional), this event occurs before
