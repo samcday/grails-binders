@@ -40,8 +40,6 @@ Custom data binding made easy.
     // Online location of the plugin's browseable source code.
 //    def scm = [ url: "http://svn.grails-plugins.codehaus.org/browse/grails-plugins/" ]
 
-    //def artefacts = [new ConstraintArtefactHandler()]
-
     def watchedResources = [
             "file:./grails-app/utils/*Binder.groovy"
     ]

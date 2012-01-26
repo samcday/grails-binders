@@ -11,8 +11,6 @@ class DefaultGrailsBinderClass extends AbstractInjectableGrailsClass implements 
 
     public DefaultGrailsBinderClass(Class clazz) {
         super(clazz, BinderArtefactHandler.TYPE);
-
-        System.out.println("created binder class ${clazz}");
     }
 
     @Override
@@ -32,9 +30,14 @@ class DefaultGrailsBinderClass extends AbstractInjectableGrailsClass implements 
     public String asText(Object val) {
         Closure c = (Closure)getPropertyOrStaticPropertyOrFieldValue(AS_TEXT_CLOSURE, Closure.class);
         if(c != null) {
-            return (String)c.call(val);
+            Object result = c.call(val);
+
+            if(result != null) {
+                return result.toString();
+            }
         }
 
-        return val.toString();
+        // Fallback is to just call .toString() on the value, or null if value is null.
+        return val != null ? val.toString() : null;
     }
 }
