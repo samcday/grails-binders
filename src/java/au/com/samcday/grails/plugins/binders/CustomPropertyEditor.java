@@ -1,4 +1,4 @@
-package au.com.samcday;
+package au.com.samcday.grails.plugins.binders;
 
 import java.beans.PropertyEditorSupport;
 

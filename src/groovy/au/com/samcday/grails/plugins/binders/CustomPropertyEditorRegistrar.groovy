@@ -1,4 +1,4 @@
-package au.com.samcday
+package au.com.samcday.grails.plugins.binders
 
 import org.springframework.beans.PropertyEditorRegistrar
 import org.springframework.beans.PropertyEditorRegistry

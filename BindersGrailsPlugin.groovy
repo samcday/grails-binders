@@ -1,5 +1,5 @@
-import au.com.samcday.BinderArtefactHandler
-import au.com.samcday.CustomPropertyEditorRegistrar
+import au.com.samcday.grails.plugins.binders.BinderArtefactHandler
+import au.com.samcday.grails.plugins.binders.CustomPropertyEditorRegistrar
 
 class BindersGrailsPlugin {
     // the plugin version
