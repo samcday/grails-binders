@@ -2,6 +2,7 @@ package au.com.samcday.grails.plugins.binders
 
 import grails.test.mixin.support.GrailsUnitTestMixin
 import org.junit.BeforeClass
+import org.junit.Before
 
 class BinderUnitTestMixin extends GrailsUnitTestMixin {
     @BeforeClass
@@ -9,11 +10,11 @@ class BinderUnitTestMixin extends GrailsUnitTestMixin {
         if(applicationContext == null) {
             initGrailsApplication()
         }
-
-        grailsApplication.registerArtefactHandler(new BinderArtefactHandler())
     }
 
     def <T> T mockBinder(Class<T> binderClass) {
+        grailsApplication.registerArtefactHandler(new BinderArtefactHandler())
+
         def binderArtefact = grailsApplication.addArtefact(BinderArtefactHandler.TYPE, binderClass)
 
         defineBeans {
